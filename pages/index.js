@@ -8,30 +8,19 @@ import access from 'safe-access'
 import { config } from 'config'
 import include from 'underscore.string/include'
 import Bio from 'components/Bio'
+import PageLink from 'components/PageLink'
 
 class BlogIndex extends React.Component {
   render () {
-    const pageLinks = []
-    // Sort pages.
     const sortedPages = sortBy(this.props.route.pages, (page) =>
       access(page, 'data.date')
     ).reverse()
-    sortedPages.forEach((page) => {
-      // Posts are those with md extension that are not 404 pages OR have a date (meaning they're a react component post).
-      if (access(page, 'file.ext') === 'md' && !include(page.path, '/404') || access(page, 'data.date')) {
-        const title = access(page, 'data.title') || page.path
-        pageLinks.push(
-          <li
-            key={page.path}
-            style={{
-              marginBottom: rhythm(1/4),
-            }}
-          >
-            <Link style={{boxShadow: 'none'}} to={prefixLink(page.path)}>{title}</Link>
-          </li>
-        )
-      }
-    })
+
+    const isMarkdownPost = (page) =>
+        access(page, 'file.ext') === 'md' 
+          && !include(page.path, '/404') 
+          || access(page, 'data.date')
+
     return (
       <div>
         <Helmet
@@ -43,7 +32,8 @@ class BlogIndex extends React.Component {
         />
         <Bio />
         <ul>
-          {pageLinks}
+          { sortedPages.filter(isMarkdownPost).map((page) =>
+            <PageLink key={page.path} page={page} />) }
         </ul>
       </div>
     )
