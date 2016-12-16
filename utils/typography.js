@@ -3,7 +3,7 @@ import sutroTheme from 'typography-theme-sutro'
 
 sutroTheme.overrideThemeStyles = ({ }, options) => ({
   'a': {
-    color: '#01448C'
+    color: '#0000CD'
   }
 })
 
