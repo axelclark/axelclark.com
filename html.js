@@ -31,6 +31,7 @@ module.exports = React.createClass({
           />
           {head.title.toComponent()}
           {head.meta.toComponent()}
+          <link rel="shortcut icon" href={prefixLink('/favicon.ico')} />
           <TypographyStyle typography={typography} />
           <GoogleFont typography={typography} />
           {css}
