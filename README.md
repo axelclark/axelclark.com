@@ -1,8 +1,13 @@
-# gatsby-starter-blog
-Gatsby starter for creating a blog
+# Axel Clark's simple blog
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-`gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog`
+A simple blog using [Gatsby](https://github.com/gatsbyjs/gatsby), a React.js static site generator. 
+Created using the [Simple Blog](https://github.com/gatsbyjs/gatsby-starter-blog) template.
 
 ## Running in development
-`gatsby develop`
+`npm run dev` or `gatsby develop`
+
+## Standard Build
+`npm run build` or `gatsby build`
+
+## Deploy to GitHub pages
+`npm run deploy` or `gatsby build --prefix-links && gh-pages -d public`
