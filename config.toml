@@ -1,3 +1,5 @@
 blogTitle = "Axel Clark"
 authorName = "Axel Clark"
 linkPrefix = "/simple-blog"
+
+googleAnalyticsId = "UA-89150948-1"
