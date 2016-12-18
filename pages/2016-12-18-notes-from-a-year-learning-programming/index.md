@@ -1,5 +1,5 @@
 ---
-title: "Notes From A Year Learning Programming: Ruby, Elixir, and Javascript"
+title: "Notes From A Year Learning Programming: Ruby, Elixir, and JavaScript"
 date: "2016-12-18T18:34:39.541Z"
 layout: post
 path: "/notes-from-a-year-learning-programming/"
