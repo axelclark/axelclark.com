@@ -2,6 +2,7 @@
 title: "A Year Learning Programming: Ruby, Elixir, and Javascript"
 date: "2016-12-18T18:01:54.343Z"
 layout: post
+readNext: "/notes-from-a-year-learning-programming/"
 path: "/a-year-learning-programming/"
 ---
 A year ago, with no programming experience, I set out to learn [Cold Fusion](http://www.adobe.com/products/coldfusion-family.html).  At work, I was responsible for a report that pulled data that people across the organization updated on the web. I decided to fix the form and change some of the fields. I thought it would be no big deal for me to make these updates myself, but the developer in my organization looked at me and said, “Sure you can make the changes yourself—you just have to learn [Cold Fusion](http://www.adobe.com/products/coldfusion-family.html).”  I hadn’t programmed before, but I’d built a few Access databases, so I decided to give it a shot.  After two frustrating days full of failed installation and configuration attempts, I was able to start on the [Learn CF in a Week](http://www.learncfinaweek.com/) tutorial.  I don’t think our developer expected me to take him up on the offer, but I was back the next week to let him know I was working on learning it.  That initiative kind of fizzled when I wasn’t able to get an [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) (which I had to look up) installed on my computer, but a seed had been planted.
@@ -57,4 +58,4 @@ My buddy Matt is learning JavaScript too, so we were excited to try working toge
 
 Finally, as I was learning React fundamentals, I came across [Gatsby](https://github.com/gatsbyjs/gatsby) which uses React to build static sites.  I started playing around with it and built a simple blog site, [simple-blog](https://github.com/axelclark/simple-blog).  Unfortunately, I had a blog, but no content so I decided to write a blog post about my year learning programming and here it is!
 
-Well there you have it, a year learning programming.  If you have any questions, you can find me on Twitter at [@axelclark2](https://twitter.com/axelclark2) or Github at [axelclark](https://github.com/axelclark).  My next post will be a collection of notes I made about what worked and didn't work for me.  It also includes a list of my favorite resources.  Thanks for reading!
+Well there you have it, a year learning programming.  If you have any questions, you can find me on Twitter at [@axelclark2](https://twitter.com/axelclark2) or Github at [axelclark](https://github.com/axelclark).  My next post will be a collection of notes I made about what worked and didn't work for me.  It will also include a list of my favorite resources.  Thanks for reading!

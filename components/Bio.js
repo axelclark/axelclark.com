@@ -23,7 +23,7 @@ class Bio extends React.Component {
             height: rhythm(2),
           }}
         />
-        Written by <strong>{config.authorName}</strong> who lives and works in Washington DC. He's currently learning Elixir/Phoenix and JavaScript/React/Redux.  You should follow him on <a href="https://twitter.com/axelclark2">Twitter</a> or <a href="https://github.com/axelclark">GitHub</a>.
+        Written by <strong>{config.authorName}</strong> who lives and works in Washington DC. He's currently learning Elixir/Phoenix and JavaScript/React/Redux.  You can contact or follow him on <a href="https://twitter.com/axelclark2">Twitter</a> or <a href="https://github.com/axelclark">GitHub</a>.
       </p>
     )
   }
