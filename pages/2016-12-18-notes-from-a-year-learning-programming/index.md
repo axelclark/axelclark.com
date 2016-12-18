@@ -80,7 +80,7 @@ Many books and tutorials are available online for free, but if I find them usefu
 * [Elixir in Action](https://www.manning.com/books/elixir-in-action) by Saša Jurić ([@sasajuric](https://twitter.com/sasajuric)):  I found it was the best resource to learn OTP in Elixir.
 * [Elixir Forum](https://elixirforum.com/):  I would use this over StackOverflow for Elixir/Phoenix questions.  The community is very helpful.
 * [Daily Drip](https://www.dailydrip.com/topics/elixir) by Josh Adams ([@knewter](https://twitter.com/knewter)):  A series of short screencasts for learning Elixir topics.
-* [Elixir Fountain](https://soundcloud.com/elixirfountain) with Johnny Winn ([@johnny_rugger](https://twitter.com/johnny_rugger):  A fun podcast to hear from the people in the Elixir community.
+* [Elixir Fountain](https://soundcloud.com/elixirfountain) with Johnny Winn ([@johnny_rugger](https://twitter.com/johnny_rugger)):  A fun podcast to hear from the people in the Elixir community.
 ### JavaScript/React/Redux:
 #### Beginner
 * [A Smarter Way to Learn JavaScript](https://www.amazon.com/Smarter-Way-Learn-JavaScript-technology-ebook/dp/B00H1W9I6C):  Make sure you actually do the exercises. I could tell I was getting it when I could go through the exercises without consciously thinking about them. 
