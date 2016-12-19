@@ -14,6 +14,7 @@ module.exports = React.createClass({
   render () {
     const { body } = this.props
     const head = Helmet.rewind();
+    console.log(head);
 
     let css
     if (process.env.NODE_ENV === 'production') {

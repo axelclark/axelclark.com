@@ -1,6 +1,6 @@
-# Axel Clark's simple blog
+# Axel Clark's blog
 
-A simple blog using [Gatsby](https://github.com/gatsbyjs/gatsby), a React.js static site generator. 
+A blog built using [Gatsby](https://github.com/gatsbyjs/gatsby), a React.js static site generator. 
 Created using the [Simple Blog](https://github.com/gatsbyjs/gatsby-starter-blog) template.
 
 ## Running in development

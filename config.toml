@@ -1,5 +1,6 @@
-blogTitle = "Axel Clark"
+blogTitle = "Axel's Blog "
 authorName = "Axel Clark"
+description = "Axel's blog about programming and other projects"
+keywords = "programming, Elixir, Phoenix"
 linkPrefix = ""
-
 googleAnalyticsId = "UA-89150948-1"

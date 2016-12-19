@@ -1,10 +1,10 @@
 {
-  "name": "gatsby-starter-blog",
-  "description": "Starter Gatsby Blog",
+  "name": "Axel Clark",
+  "description": "Axel's Personal Website",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Axel Clark <axelclark@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
+    "url": "https://github.com/axelclark/axelclark.com/issues"
   },
   "dependencies": {
     "gatsby": "^0.12.22",
@@ -25,7 +25,7 @@
   "devDependencies": {
     "gh-pages": "^0.12.0"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/axelclark/axelclark.com",
   "keywords": [
     "gatsby"
   ],
@@ -33,7 +33,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/axelclark/axelclark.com.git"
   },
   "scripts": {
     "dev": "gatsby develop",
