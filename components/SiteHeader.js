@@ -25,7 +25,7 @@ const SiteHeader = ({ scaleValue, marginBottomValue }) => (
   </h1>
 )
 
-Template.propTypes = {
+SiteHeader.propTypes = {
   scaleValue: React.PropTypes.number,
   marginBottomValue: React.PropTypes.number
 }

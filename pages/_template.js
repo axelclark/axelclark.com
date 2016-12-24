@@ -4,43 +4,39 @@ import { prefixLink } from 'gatsby-helpers'
 import { rhythm } from 'utils/typography'
 import SiteHeader from '../components/SiteHeader'
 
-class Template extends React.Component {
-  render () {
-    const { location, children } = this.props
-    let header
-    if (location.pathname === prefixLink('/')) {
-      header = (
-        <SiteHeader 
-          scaleValue={1.5} 
-          marginBottomValue={1.5}
-        />
-      )
-    } else {
-      header = (
-        <SiteHeader 
-          scaleValue={1} 
-          marginBottomValue={1}
-        />
-      )
-    }
-    return (
-      <Container
-        style={{
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3/4)}`,
-        }}
-      >
-        {header}
-        {children}
-      </Container>
+const Template = ({ location, children }) => {
+  let header
+  if (location.pathname === prefixLink('/')) {
+    header = (
+      <SiteHeader 
+        scaleValue={1.5} 
+        marginBottomValue={1.5}
+      />
+    )
+  } else {
+    header = (
+      <SiteHeader 
+        scaleValue={1} 
+        marginBottomValue={1}
+      />
     )
   }
+  return (
+    <Container
+      style={{
+        maxWidth: rhythm(24),
+        padding: `${rhythm(1.5)} ${rhythm(3/4)}`,
+      }}
+    >
+      {header}
+      {children}
+    </Container>
+  )
 }
 
 Template.propTypes = {
   children: React.PropTypes.any,
-  location: React.PropTypes.object,
-  route: React.PropTypes.object,
+  location: React.PropTypes.object
 }
 
 export default Template
