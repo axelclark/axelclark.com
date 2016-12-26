@@ -28,11 +28,10 @@ const BlogIndex = ({ route }) => {
         ]}
       />
       <Bio />
-      <ul>
-        {sortedPages.filter(isMarkdownPost).map((page) =>
-          <PageLink key={page.path} page={page} />
-        )}
-      </ul>
+      <h3>Blog Posts</h3>
+      {sortedPages.filter(isMarkdownPost).map((page) =>
+        <PageLink key={page.path} page={page} />
+      )}
     </div>
   )
 }

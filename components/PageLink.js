@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import {Card, CardTitle} from 'material-ui/Card';
 import { rhythm } from 'utils/typography'
 import { prefixLink } from 'gatsby-helpers'
 import access from 'safe-access' 
@@ -7,16 +8,14 @@ import access from 'safe-access'
 const PageLink = ({ page }) => {
   const title = access(page, 'data.title') || page.path
   return(
-    <li
-      key={page.path}
-      style={{
-        marginBottom: rhythm(1/4),
-      }}
-    >
-      <Link style={{boxShadow: 'none'}} to={prefixLink(page.path)}>
-        {title}
-      </Link>
-    </li>
+    <Link to={prefixLink(page.path)} style={{textDecoration: 'none'}}>
+      <Card
+        style={{
+          marginBottom: rhythm(1/4),
+        }} >
+        <CardTitle title={title} />
+      </Card>
+    </Link>
   )
 }
 
