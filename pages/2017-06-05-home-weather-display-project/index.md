@@ -14,7 +14,9 @@ project.
 Then I kind of hit a wall trying to learn Serial Peripheral Interface 
 bus (SPI) and I2C (Inter-Integrated Circuit) protocols to connect to
 sensors. I had a really hard time figuring out how to read datasheets to get the 
-protocols to communicate with sensors.  Recently, I discovered the [GrovePi+](https://www.dexterindustries.com/shop/grovepi-starter-kit-raspberry-pi/) and it has helped me break through those challenges to 
+protocols to communicate with the sensors.  Recently, I discovered the 
+[GrovePi+](https://www.dexterindustries.com/shop/grovepi-starter-kit-raspberry-pi/) 
+and it has helped me break through those challenges to 
 start building more interesting projects with my Raspberry Pi. 
 
 This post describes a 
@@ -44,7 +46,7 @@ I purchased to get started):
 1. Follow the instructions included with your GrovePi+ to attach your GrovePi+ to your Raspberry Pi. 
 
 2. On the GrovePi+ (or GrovePi Zero), connect a DHT11 to port D7 and a RGB LCD display 
-to the IC2-1 port.
+to the I2C-1 port.
 
 Here is a picture of everything set up on my GrovePi+.
 
