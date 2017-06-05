@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+ <html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title data-react-helmet="true">Home Weather Display with Nerves and GrovePi | Axel&#x27;s Blog </title><link rel="shortcut icon" href="/favicon.ico"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:112.5%/1.78em Merriweather,Georgia,serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.9);font-family:Merriweather,Georgia,serif;font-weight:300;word-wrap:break-word;}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;color:inherit;font-family:Open Sans,sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:2.2974rem;line-height:2.67rem;letter-spacing:-2px;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;color:inherit;font-family:Open Sans,sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.78rem;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;color:inherit;font-family:Open Sans,sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.78rem;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;color:inherit;font-family:Open Sans,sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.78rem;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;color:inherit;font-family:Open Sans,sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.78rem;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;color:inherit;font-family:Open Sans,sans-serif;font-weight:700;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.78rem;font-style:italic;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;}ul{margin-left:1.78rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;list-style-position:outside;list-style-image:none;list-style:disc;}ol{margin-left:1.78rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;font-size:0.85rem;line-height:1.78rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;font-size:1rem;line-height:1.78rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;}blockquote{margin-left:0;margin-right:1.78rem;margin-top:0;padding-bottom:0;padding-left:1.44625rem;padding-right:0;padding-top:0;margin-bottom:1.78rem;font-size:1.1487rem;line-height:1.78rem;color:hsla(0,0%,0%,0.59);font-style:italic;border-left:0.33375rem solid hsla(0,0%,0%,0.2);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.78rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.78rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:calc(1.78rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.78rem;margin-bottom:calc(1.78rem / 2);margin-top:calc(1.78rem / 2);}li > ul{margin-left:1.78rem;margin-bottom:calc(1.78rem / 2);margin-top:calc(1.78rem / 2);}code{font-size:0.85rem;line-height:1.78rem;}kbd{font-size:0.85rem;line-height:1.78rem;}samp{font-size:0.85rem;line-height:1.78rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:tnum;padding-left:1.18667rem;padding-right:1.18667rem;padding-top:0.89rem;padding-bottom:calc(0.89rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}a{color:#607D8B;text-decoration:none;}a:hover,a:active{text-decoration:underline;}blockquote > :last-child{margin-bottom:0;}blockquote cite{font-size:1rem;line-height:1.78rem;color:hsla(0,0%,0%,0.9);font-weight:300;}blockquote cite:before{content:"— ";}ul,ol{margin-left:0;}@media only screen and (max-width:480px){ul,ol{margin-left:1.78rem;}blockquote{margin-left:-1.335rem;margin-right:0;padding-left:1.00125rem;}}@media only screen and (max-width:768px){h1{font-size:2rem;line-height:2.67rem;}}h1,h2,h3,h4,h5,h6{margin-top:3.56rem;}</style><link href="//fonts.googleapis.com/css?family=Open+Sans:700|Merriweather:300,300i,700,700i" rel="stylesheet" type="text/css"/><style>.markdown pre{display:block;background:#3f3f3f;color:#dcdcdc;overflow-y:hidden}.markdown pre code{background:none;border:none;border-radius:3px;display:inline-block;overflow:inherit;padding:1.58333rem;white-space:inherit;word-wrap:normal}code{border-radius:3px;white-space:pre;white-space:pre-wrap;white-space:pre-line;white-space:-pre-wrap;white-space:-o-pre-wrap;white-space:-moz-pre-wrap;white-space:-hp-pre-wrap;word-wrap:break-word;background:#e5e5e5;border:1px solid #ccc;display:inline;font-family:Inconsolata,monospace,serif;max-width:100%;overflow:auto;padding:0 .1625rem}.clojure .hljs-attribute,.css .hljs-class,.css .hljs-id,.hljs-keyword,.hljs-request,.hljs-status,.hljs-tag,.lisp .hljs-title,.nginx .hljs-title{color:#e3ceab}.django .hljs-filter .hljs-argument,.django .hljs-template_tag,.django .hljs-variable{color:#dcdcdc}.hljs-date,.hljs-number{color:#8cd0d3}.apache .hljs-sqbracket,.dos .hljs-envvar,.dos .hljs-stream,.hljs-variable{color:#efdcbc}.diff .hljs-change,.dos .hljs-flow,.hljs-literal,.python .exception,.python .hljs-built_in,.tex .hljs-special{color:#efefaf}.diff .hljs-chunk,.hljs-subst{color:#8f8f8f}.apache .hljs-tag,.diff .hljs-header,.dos .hljs-keyword,.haskell .hljs-type,.hljs-prompt,.hljs-title,.nginx .hljs-built_in,.python .hljs-decorator,.ruby .hljs-class .hljs-parent,.tex .hljs-command{color:#efef8f}.dos .hljs-winutils,.ruby .hljs-string,.ruby .hljs-symbol,.ruby .hljs-symbol .hljs-string{color:#dca3a3}.apache .hljs-cbracket,.coffeescript .hljs-attribute,.css .hljs-rules .hljs-value,.diff .hljs-deletion,.hljs-attr_selector,.hljs-built_in,.hljs-javadoc,.hljs-pragma,.hljs-preprocessor,.hljs-pseudo,.hljs-string,.hljs-tag .hljs-value,.smalltalk .hljs-array,.smalltalk .hljs-class,.smalltalk .hljs-localvars,.sql .hljs-aggregate,.tex .hljs-formula{color:#cc9393}.diff .hljs-addition,.hljs-comment,.hljs-doctype,.hljs-pi,.hljs-shebang,.hljs-template_comment,.java .hljs-annotation{color:#7f9f7f}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .css,.xml .hljs-cdata,.xml .javascript,.xml .vbscript{opacity:.5}</style></head><body><div id="react-mount"><div style="max-width:42.72rem;margin-left:auto;margin-right:auto;padding:2.67rem 1.335rem;" data-reactroot="" data-reactid="1" data-react-checksum="1359892997"><div style="-moz-box-sizing:border-box;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-transition:all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;box-sizing:border-box;font-family:Roboto, sans-serif;color:rgba(0, 0, 0, 0.87);box-shadow:0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12);border-radius:0px;background-color:#607d8b;z-index:1100;width:100%;display:-webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;padding-left:24px;padding-right:24px;margin-bottom:1.78rem;transition:all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;position:relative;" data-reactid="2"><div style="margin-top:8px;margin-right:8px;margin-left:-16px;" data-reactid="3"><button style="-webkit-transition:all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-moz-box-sizing:border-box;-webkit-transform:translate(0, 0);-ms-transform:translate(0, 0);cursor:pointer;text-decoration:none;margin:0;padding:12px;outline:none;font-size:0;font-weight:inherit;box-sizing:border-box;position:relative;overflow:visible;transition:all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;width:48px;height:48px;background:none;display:inline-block;font-family:Roboto, sans-serif;border:10px;transform:translate(0, 0);" tabindex="0" type="button" data-reactid="4"><div data-reactid="5"><a style="fill:#ffffff;color:#ffffff;" href="/" data-reactid="6"><svg style="-webkit-transition:all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;width:24px;color:rgba(0, 0, 0, 0.87);transition:all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;display:inline-block;fill:white;height:24px;user-select:none;" viewBox="0 0 24 24" data-reactid="7"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" data-reactid="8"></path></svg></a></div></button></div><h1 style="-ms-flex:1;-webkit-flex:1;text-overflow:ellipsis;margin:0;padding-top:0;letter-spacing:0;font-size:24px;overflow:hidden;color:#ffffff;height:64px;line-height:64px;box-flex:1;flex:1;white-space:nowrap;font-weight:400;" data-reactid="9">Axel&#x27;s Blog </h1></div><div class="markdown" data-reactid="10"><!-- react-empty: 11 --><h1 style="margin-top:0;" data-reactid="12">Home Weather Display with Nerves and GrovePi</h1><div data-reactid="13"><p>Last year, when I first discovered you can use Elixir with <a href="http://nerves-project.org/">Nerves Project</a>
+on a Raspberry Pi, I bought a Raspberry Pi and started playing around with a
+&quot;hello world&quot; blinky project. I got <a href="https://github.com/axelclark/blinky">blinky</a>
+working and progressed to a <a href="https://github.com/axelclark/traffic_light">traffic light</a>
+project.</p>
+<p>Then I kind of hit a wall trying to learn Serial Peripheral Interface
+bus (SPI) and I2C (Inter-Integrated Circuit) protocols to connect to
+sensors. I had a really hard time figuring out how to read datasheets to get the
+protocols to communicate with sensors.  Recently, I discovered the <a href="https://www.dexterindustries.com/shop/grovepi-starter-kit-raspberry-pi/">GrovePi+</a> and it has helped me break through those challenges to
+start building more interesting projects with my Raspberry Pi.</p>
+<p>This post describes a
+<a href="https://github.com/fhunleth/grovepi/tree/master/examples/home_weather_display">Home Weather Display</a>
+project to show how easy it is to get started with Nerves and GrovePi. The project
+reads a digital humidity and temperature (DHT) sensor and updates a RGB LCD display
+with the data. The project was inspired by this Python
+<a href="https://www.dexterindustries.com/GrovePi/projects-for-the-raspberry-pi/raspberry-pi-temperature-sensor/">project</a>.</p>
+<h2>Required Hardware</h2>
+<p>This project requires the following hardware (all Grove hardware, except the
+case, came with the
+<a href="https://www.dexterindustries.com/shop/grovepi-starter-kit-raspberry-pi/">GrovePi+ Base Kit</a>
+I purchased to get started):</p>
+<ul>
+<li>Raspberry Pi + SD card</li>
+<li>GrovePi+ or GrovePi Zero (I used a GrovePi+, but a GrovePi Zero works as
+well)</li>
+<li>GrovePi case (optional)</li>
+<li>Grove DHT11 Sensor (the blue one)</li>
+<li>Grove RGB LCD display</li>
+<li>Grove Connection wires x 2</li>
+</ul>
+<h2>Hardware Setup</h2>
+<ol>
+<li>
+<p>Follow the instructions included with your GrovePi+ to attach your GrovePi+ to your Raspberry Pi.</p>
+</li>
+<li>
+<p>On the GrovePi+ (or GrovePi Zero), connect a DHT11 to port D7 and a RGB LCD display
+to the IC2-1 port.</p>
+</li>
+</ol>
+<p>Here is a picture of everything set up on my GrovePi+.</p>
+<p><img src="./setup.jpg" alt="project setup"></p>
+<h2>Initial Project Setup</h2>
+<ol>
+<li>
+<p>Install Nerves using these <a href="https://hexdocs.pm/nerves/installation.html">instructions</a>
+if you don’t already have it installed.</p>
+</li>
+<li>
+<p>Run <code>mix nerves.new home_weather_display</code> in your shell and enter <code>y</code> for <code>fetch and install dependencies?</code>.</p>
+</li>
+<li>
+<p>Follow the <a href="https://github.com/fhunleth/grovepi">GrovePi application</a> instructions
+to add grovepi to your deps:</p>
+</li>
+</ol>
+<ul>
+<li>Note:  The DHT module I’m using will be in GrovePi release 0.3.3 and later.
+Until then it is available from master.</li>
+</ul>
+<pre><code class="language-elixir"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deps</span></span> <span class="hljs-keyword">do</span>
+  {<span class="hljs-symbol">:grovepi</span>, <span class="hljs-symbol">github:</span> <span class="hljs-string">"fhunleth/grovepi"</span>}
+<span class="hljs-keyword">end</span>
+</code></pre>
+<ol start="4">
+<li>Run <code>mix deps.get</code> to download the dependencies.</li>
+</ol>
+<h2>Programming the Home Weather Display</h2>
+<p>The <a href="https://github.com/fhunleth/grovepi">GrovePi</a> application lets you interact
+with the GrovePi+ and any connected sensors in Elixir. It will automatically start
+with your application and initiate a connection to the GrovePi+ board.</p>
+<p>You can use <code>GrovePi.Digital</code> (<a href="https://hexdocs.pm/grovepi/GrovePi.Digital.html#content">docs</a>)
+or <code>GrovePi.Analog</code> (<a href="https://hexdocs.pm/grovepi/GrovePi.Analog.html#content">docs</a>)
+to directly interact with sensors.  However, we are going to use the
+<code>GrovePi.DHT</code> and <code>GrovePi.RGBLCD</code> modules to more easily communicate with these
+components.</p>
+<h3>Polling on the DHT</h3>
+<p>The <code>GrovePi.DHT</code> module uses the <code>GrovePi.Poller</code> behaviour and allows you to poll
+(i.e. read at regular intervals) your DHT sensor.</p>
+<ol>
+<li>Add the <code>GrovePi.DHT</code> module into your supervision tree in
+<code>lib/home_weather_display/application.ex</code>. Also include the <code>@dht_pin</code> and
+the <code>@dht_polling_interval</code> which is an optional argument. The default polling
+interval is .1 seconds which is more frequent than needed for our project, so
+we’ll use 1_000 ms or 1 second. Adding the <code>GrovePi.DHT</code> module as a worker starts a
+GenServer for polling on your DHT sensor connected to port D7.</li>
+</ol>
+<pre><code class="language-elixir">lib/home_weather_display/application.ex
+
+<span class="hljs-class"><span class="hljs-keyword">defmodule</span> <span class="hljs-title">HomeWeatherDisplay</span></span>.Application <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">use</span> Application
+
+  <span class="hljs-variable">@dht_pin</span> <span class="hljs-number">7</span> <span class="hljs-comment"># Use port D7 for the DHT</span>
+  <span class="hljs-variable">@dht_poll_interval</span> <span class="hljs-number">1_000</span> <span class="hljs-comment"># poll every 1 second</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span></span>(_type, _args) <span class="hljs-keyword">do</span>
+    import Supervisor.Spec, <span class="hljs-symbol">warn:</span> <span class="hljs-keyword">false</span>
+
+    children = [
+      worker(GrovePi.DHT, [<span class="hljs-variable">@dht_pin</span>, [<span class="hljs-symbol">poll_interval:</span> <span class="hljs-variable">@dht_poll_interval</span>]]),
+    ]
+
+    opts = [<span class="hljs-symbol">strategy:</span> <span class="hljs-symbol">:one_for_one</span>, <span class="hljs-symbol">name:</span> HomeWeatherDisplay.Supervisor]
+    Supervisor.start_link(children, opts)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<ol start="2">
+<li>Create your HomeWeatherDisplay module, a GenServer that will subscribe to the
+DHT sensor using <code>GrovePi.DHT.subscribe/2</code> during initialization. Update
+<code>lib/home_weather_display.ex</code> with the following.</li>
+</ol>
+<pre><code class="language-elixir">lib/home_weather_display.ex
+
+<span class="hljs-class"><span class="hljs-keyword">defmodule</span> <span class="hljs-title">HomeWeatherDisplay</span></span> <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">use</span> GenServer
+  require Logger
+
+  <span class="hljs-keyword">alias</span> GrovePi.{DHT, RGBLCD}
+
+  <span class="hljs-comment"># Accept the DHT pin as an argument</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_link</span></span>(dht_pin) <span class="hljs-keyword">do</span>
+    GenServer.start_link(__MODULE_<span class="hljs-number">_</span>, dht_pin)
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init</span></span>(dht_pin) <span class="hljs-keyword">do</span>
+    <span class="hljs-comment"># Subscribe to DHT pin when event :changed is triggered</span>
+    DHT.subscribe(dht_pin, <span class="hljs-symbol">:changed</span>)
+    {<span class="hljs-symbol">:ok</span>, []}
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Add <code>HomeWeatherDisplay</code> as a worker in your supervision tree and
+pass in <code>@dht_pin</code> as an argument.</p>
+<pre><code class="language-elixir">lib/home_weather_display/application.ex
+
+children = [
+  worker(GrovePi.DHT, [<span class="hljs-variable">@dht_pin</span>, [<span class="hljs-symbol">poll_interval:</span> <span class="hljs-variable">@dht_poll_interval</span>]]),
+  <span class="hljs-comment"># Add HomeWeatherDisplay to supervision tree</span>
+  worker(HomeWeatherDisplay, [<span class="hljs-variable">@dht_pin</span>]),
+]
+</code></pre>
+<ol start="3">
+<li>There is only one type of event for the <code>GrovePi.DHT</code> by default; <code>:changed</code>. The
+<code>GrovePi.DHT</code> will poll every second but an event is only triggered when the value of either
+temperature or humidity changes. When an event is triggered, <code>GrovePi.DHT</code> will send a
+message to all subscribed processes in the form of
+<code>{pin, :changed, %{temp: 11.3, humidity: 45.5}</code>.</li>
+</ol>
+<p>You can use <code>GenServer.handle_info/2</code> to receive the <code>Grovepi.DHT</code> message.</p>
+<pre><code class="language-elixir">lib/home_weather_display.ex
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_info</span></span>({_pin, <span class="hljs-symbol">:changed</span>, %{<span class="hljs-symbol">temp:</span> temp, <span class="hljs-symbol">humidity:</span> humidity}}, state) <span class="hljs-keyword">do</span>
+  text = format_text(temp, humidity)
+  Logger.info text
+  {<span class="hljs-symbol">:noreply</span>, state}
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_info</span></span>(_message, state) <span class="hljs-keyword">do</span>
+  <span class="hljs-comment"># handle any unexpected messages</span>
+  {<span class="hljs-symbol">:noreply</span>, state}
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">defp</span> <span class="hljs-title">format_text</span></span>(temp, humidity) <span class="hljs-keyword">do</span>
+  <span class="hljs-string">"T: <span class="hljs-subst">#{Float.to_string(temp)}</span>C H: <span class="hljs-subst">#{Float.to_string(humidity)}</span>%"</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>When <code>handle_info/2</code> receives the <code>:changed</code> message, it takes the temp and
+humidity data and formats it to a string. Right now we are just logging the
+data, so lets add code to update the RGB LCD Display.</p>
+<h3>Updating the RGB LCD Display.</h3>
+<ol>
+<li>We want an indicator when the numbers are changing so we’ll create a function
+<code>flash_rgb/0</code> using <code>GrovePi.RGBLCD.set_rgb/3</code> in the <code>HomeWeatherDisplay</code> module.
+You can write directly to the RGB LCD display without starting it in a
+supervision tree. It also currently always uses the I2C-1 Port, so that doesn’t
+need to be configured.</li>
+</ol>
+<pre><code class="language-elixir">lib/home_weather_display.ex
+
+<span class="hljs-function"><span class="hljs-keyword">defp</span> <span class="hljs-title">flash_rgb</span></span>() <span class="hljs-keyword">do</span>
+  RGBLCD.set_rgb(<span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">64</span>)
+  RGBLCD.set_rgb(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<ol start="2">
+<li>In <code>HomeWeatherDisplay.init/1</code> when our GenServer is starting up, let’s flash
+the display and use <code>GrovePi.RGBLCD.set_text/1</code> to say it’s ready.</li>
+</ol>
+<pre><code class="language-elixir">lib/home_weather_display.ex
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init</span></span>(dht_pin) <span class="hljs-keyword">do</span>
+  <span class="hljs-comment"># Add flash and initial display message</span>
+  flash_rgb()
+  RGBLCD.set_text(<span class="hljs-string">"Ready!"</span>)
+
+  DHT.subscribe(dht_pin, <span class="hljs-symbol">:changed</span>)
+  {<span class="hljs-symbol">:ok</span>, []}
+<span class="hljs-keyword">end</span>
+</code></pre>
+<ol start="3">
+<li>Now update the RGB LCD Display to show new data when the <code>:changed</code> event is
+received in <code>HomeWeatherDisplay.handle_info/2</code>.</li>
+</ol>
+<pre><code class="language-elixir">lib/home_weather_display.ex
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_info</span></span>({_pin, <span class="hljs-symbol">:changed</span>, %{<span class="hljs-symbol">temp:</span> temp, <span class="hljs-symbol">humidity:</span> humidity}}, state) <span class="hljs-keyword">do</span>
+  text = format_text(temp, humidity)
+
+  <span class="hljs-comment"># Add indicator of update</span>
+  flash_rgb()
+
+  <span class="hljs-comment"># Update LCD with new data</span>
+  RGBLCD.set_text(text)
+
+  Logger.info text
+  {<span class="hljs-symbol">:noreply</span>, state}
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Now when we receive updated data, the display will flash and show the new data.
+That’s it for the application, now you just need to burn your SD card and try it
+out!</p>
+<h2>Burn to SD Card</h2>
+<ol>
+<li><code>export NERVES_TARGET=my_target</code> or prefix every command with <code>NERVES_TARGET=my_target</code>, Example: <code>NERVES_TARGET=rpi3</code></li>
+<li>Install dependencies with <code>mix deps.get</code></li>
+<li>Create firmware with <code>mix firmware</code></li>
+<li>Burn to an SD card with <code>mix firmware.burn</code></li>
+</ol>
+<h2>Run the Program</h2>
+<ol>
+<li>Insert the SD card in your Raspberry Pi</li>
+<li>Check the DHT is connected to Port D7 and the RGB LCD Display is connected to I2C-1.</li>
+<li>Power on your Raspberry Pi</li>
+<li>After your app boots, your RGB LCD Display should say “Ready!” and then begin
+showing temperature and humidity updates.</li>
+</ol>
+<p><img src="./home_weather_display.jpg" alt="home weather display">
+<img src="./display.jpg" alt="display"></p>
+<h2>Conclusion</h2>
+<p>I hope others will see how fun and easy it is to use GrovePi and Elixir to
+communicate with sensors connected to your Raspberry Pi. The cool thing is once
+I got momentum building projects with different sensors, it motivated me to
+go back and learn how to read datasheets to understand how communcation is
+happening between my hardware. Good luck and have fun programming Elixir on your
+hardware!</p>
+<p>The source code for the Home Weather Display can be found
+<a href="https://github.com/fhunleth/grovepi/tree/master/examples/home_weather_display">here</a>.
+You can also check out the <a href="https://github.com/fhunleth/grovepi/tree/master/examples/led_fade">LED Fade</a>
+and <a href="https://github.com/fhunleth/grovepi/tree/master/examples/alarm">Alarm</a> GrovePi
+example projects in the <a href="https://github.com/fhunleth/grovepi">GrovePi GitHub repo</a>.
+In addition, I’ve created a <a href="https://github.com/axelclark/home_detection">Home Detection</a>
+project using the sound sensor, the RGB LCD Display and an LED. All of these
+projects use components from the
+<a href="https://www.dexterindustries.com/shop/grovepi-starter-kit-raspberry-pi/">GrovePi+ Base Kit</a>.</p>
+</div><em style="display:block;margin-bottom:3.56rem;" data-reactid="14"><!-- react-text: 15 -->Posted <!-- /react-text --><!-- react-text: 16 -->June 5, 2017<!-- /react-text --></em><hr style="margin-bottom:3.56rem;" data-reactid="17"/><noscript data-reactid="18"></noscript><div style="-moz-box-sizing:border-box;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-transition:all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;box-sizing:border-box;font-family:Roboto, sans-serif;color:rgba(0, 0, 0, 0.87);background-color:#ffffff;border-radius:2px;padding:1.78rem;margin-bottom:1.78rem;transition:all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;box-shadow:0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12);" data-reactid="19"><p style="margin-bottom:0;" data-reactid="20"><img src="/0006bf0abfe14ffceb0bda2bde6c1fc1.jpg" alt="author Axel Clark" style="float:left;margin-right:0.445rem;margin-bottom:0;width:3.56rem;height:3.56rem;" data-reactid="21"/><!-- react-text: 22 -->Written by <!-- /react-text --><strong data-reactid="23">Axel Clark</strong><!-- react-text: 24 --> who lives and works in Washington DC. He&#x27;s currently learning Elixir/Phoenix and JavaScript/React/Redux.  He also co-hosts the <!-- /react-text --><a href="https://soundcloud.com/noisecancellingpod" data-reactid="25">Noise Cancelling Pod</a><!-- react-text: 26 -->, a podcast about streamlining life, encouraging discourse, and appreciating each other.  You can contact or follow him on <!-- /react-text --><a href="https://twitter.com/axelclark2" data-reactid="27">Twitter</a><!-- react-text: 28 --> or <!-- /react-text --><a href="https://github.com/axelclark" data-reactid="29">GitHub</a><!-- react-text: 30 -->.<!-- /react-text --></p></div></div><span style="display:block;clear:both;" data-reactid="31"> </span></div></div><script src="/bundle.js?t=1496703731212"></script></body></html>
