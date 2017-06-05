@@ -65,7 +65,7 @@ to add it to your deps:
 
 ```elixir
 def deps do
-  [{:grovepi, "~> 0.3.3"}]
+  [{:grovepi, "~> 0.4.0"}]
 end
 ```
 
