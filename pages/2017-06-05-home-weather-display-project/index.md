@@ -60,15 +60,12 @@ if you don't already have it installed.
 2. Run `mix nerves.new home_weather_display` in your shell and enter `y` for `fetch 
 and install dependencies?`.
 
-3. Follow the [GrovePi application](https://github.com/fhunleth/grovepi) instructions 
-to add grovepi to your deps:
-
-  * Note:  The DHT module I'm using will be in GrovePi release 0.3.3 and later. 
-Until then it is available from master.
+3. Follow the [GrovePi](https://github.com/fhunleth/grovepi) application instructions 
+to add it to your deps:
 
 ```elixir
 def deps do
-  {:grovepi, github: "fhunleth/grovepi"}
+  [{:grovepi, "~> 0.3.3"}]
 end
 ```
 
