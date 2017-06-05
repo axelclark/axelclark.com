@@ -2,6 +2,7 @@
 title: "Notes From A Year Learning Programming: Ruby, Elixir, and JavaScript"
 date: "2016-12-18T18:34:39.541Z"
 layout: post
+readNext: "/home-weather-display-project/"
 path: "/notes-from-a-year-learning-programming/"
 ---
 I spent the last year learning programming.  I talked about the different languages I learned and projects I worked on in my [last post](/a-year-learning-programming/).  This post contains my notes looking back on the year and a list of my favorite resources.  Enjoy!
