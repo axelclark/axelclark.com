@@ -80,8 +80,9 @@ with your application and initiate a connection to the GrovePi+ board.
 You can use `GrovePi.Digital` ([docs](https://hexdocs.pm/grovepi/GrovePi.Digital.html#content)) 
 or `GrovePi.Analog` ([docs](https://hexdocs.pm/grovepi/GrovePi.Analog.html#content)) 
 to directly interact with sensors.  However, we are going to use the
-`GrovePi.DHT` and `GrovePi.RGBLCD` modules to more easily communicate with these 
-components.
+`GrovePi.DHT` ([docs](https://hexdocs.pm/grovepi/GrovePi.DHT.html)) and 
+`GrovePi.RGBLCD` ([docs](https://hexdocs.pm/grovepi/GrovePi.RGBLCD.html#content)) 
+modules to more easily communicate with these components.
 
 ### Polling on the DHT
 
@@ -188,7 +189,7 @@ When `handle_info/2` receives the `:changed` message, it takes the temp and
 humidity data and formats it to a string. Right now we are just logging the
 data, so lets add code to update the RGB LCD Display.
 
-### Updating the RGB LCD Display.
+### Updating the RGB LCD Display
 
 1. We want an indicator when the numbers are changing so we'll create a function 
 `flash_rgb/0` using `GrovePi.RGBLCD.set_rgb/3` in the `HomeWeatherDisplay` module. 
